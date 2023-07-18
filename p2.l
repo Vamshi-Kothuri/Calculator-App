@@ -1,0 +1,27 @@
+
+%{
+#include<stdio.h>
+int wc=0, ch=0, lines=0, tab=0, spc=0;
+%}
+
+%%
+[a-zA-Z0-9] {ch++;}
+[\n] {lines++;wc++;}
+[" "] {wc++;}
+[\t] {tab++;wc++;}
+. {spc++;}
+%%
+
+int yywrap(){}
+int main()
+{
+printf("Enter the string:");
+yylex();
+printf("wc=%d\n",wc);
+printf("ch=%d\n",ch);
+printf("lines=%d\n",lines);
+printf("tab=%d\n",tab);
+printf("spc=%d",spc);
+
+	return 0;
+}

@@ -1,0 +1,23 @@
+%{
+#include<stdio.h>
+int int_count=0,floatc=0;
+%}
+
+%%
+
+[0-9]+"."[0-9]+ {ECHO;printf("\nDecimal_Num\n");floatc++;}
+"."[0-9]+ {ECHO;printf("\nDecimal_Num\n");floatc++;}
+[0-9]+ {ECHO;printf("\nIntegerNum\n");int_count++;}
+[0-9]+"." {ECHO;printf("\nNot an Integer/Float Num\n");}
+[" "] {ECHO;}
+. {ECHO,printf("\nNot an Integer/Float Num\n");}
+%%
+
+int yywrap(){}
+
+void main(){
+printf("ENTER THE SERIES OF FLOAT AND INTNums-:");
+yylex();
+printf("int_count-:%d\nfloat_count-:%d\n",int_count,floatc);
+
+}

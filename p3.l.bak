@@ -1,0 +1,20 @@
+%{
+#include<stdio.h>
+int ch=0,lines=0,sp=0,tabs=0,spc=0;
+%}
+
+%%
+[a-zA-Z0-9] {ch++;}
+[\n] {lines++;}
+[" "] {sp++;}
+[\t] {tabs++;}
+. {spc++;}
+%%
+
+int yywrap(){}
+
+void main(){
+printf("ENTER A STRING OF CHARS-:");
+yylex();
+printf("chars:-%d\nlines:-%d\nspaces:-%d\ntabs:-%d\nspecialChar:-%d\n",ch,lines,sp,tabs,spc);
+}

@@ -1,0 +1,18 @@
+%{
+  #include<stdio.h>
+	
+  int vowels=0,consts=0;
+%}
+
+%%
+  
+%%
+
+int yywrap(){}
+
+int main(){
+
+	printf("The vowels count::%d and the consts count is::%d",vowels,consts);
+	
+   return 0;
+}
